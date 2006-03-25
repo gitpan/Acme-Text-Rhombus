@@ -1,11 +1,13 @@
 package Acme::Text::Rhombus;
 
-$VERSION = '0.16';
-@EXPORT_OK = qw(rhombus);
-
 use strict;
 use warnings;
 use base qw(Exporter);
+
+our ($VERSION, @EXPORT_OK);
+
+$VERSION = '0.17';
+@EXPORT_OK = qw(rhombus);
 
 sub rhombus {
     my %opts = @_;    
@@ -31,7 +33,7 @@ sub rhombus {
 	$repeat = $line < ($lines / 2) ? $repeat + 2 : $repeat - 2;
         $letter = chr(ord($letter) + 1);
 
-        if ($letter !~ /[a-z]/io) {
+        if ($letter !~ /[a-z]/i) {
 	    $letter = $case eq 'upper' ? 'A' : 'a';
 	}
     }    
@@ -103,7 +105,7 @@ The fillup character.
 
 =head1 AUTHOR
 
-Steven Schubiger, schubiger@cpan.org
+Steven Schubiger <schubiger@cpan.org>
 
 =head1 LICENSE
 
